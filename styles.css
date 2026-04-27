@@ -1,0 +1,74 @@
+:root {
+    /* 色彩變數 */
+    --primary: #ff8a71;
+    --secondary: #7dd3fc;
+    --bg: #fdfbf7;
+    --text: #334155;
+    --card-bg: #ffffff;
+    
+    /* 佈局變數 (新增加) */
+    --section-padding: 80px;
+    --radius-bubble: 30px;
+    --nav-height: 70px;
+    --shadow-soft: 0 15px 30px rgba(255, 138, 113, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* 導覽列使用變數優化 */
+.navbar {
+    position: sticky;
+    top: 0;
+    height: var(--nav-height);
+    background: rgba(253, 251, 247, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-flex { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+
+.logo { text-decoration: none; font-weight: bold; color: var(--primary); }
+
+.nav-links { display: flex; list-style: none; gap: 20px; }
+
+.nav-links a { text-decoration: none; color: var(--text); font-size: 0.9rem; transition: 0.3s; }
+
+.nav-links a:hover { color: var(--primary); }
+
+/* Section 使用變數 */
+.section { padding: var(--section-padding) 0; }
+
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--radius-bubble);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+/* 標籤雲與卡片網格 */
+.tag-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+
+.tag { background: #fff; padding: 10px 25px; border-radius: 50px; border: 2px solid var(--secondary); font-weight: bold; transition: 0.3s; cursor: default; }
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+.tech-tag { font-size: 0.75rem; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; margin-right: 5px; color: var(--primary); }
+
+/* 其他按鈕與英雄區樣式保持一致但建議套用變數... */
+.btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block; transition: 0.3s; font-weight: bold; }
+.btn-primary { background: var(--primary); color: white; box-shadow: var(--shadow-soft); }
+.btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }

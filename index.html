@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人網站 | 從實務到數據的有趣旅程</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <a href="#" class="logo">✨ MY SPACE</a>
+            <ul class="nav-links">
+                <li><a href="#about">關於</a></li>
+                <li><a href="#courses">課程</a></li>
+                <li><a href="#projects">實務</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#contact">聯絡</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <header class="hero">
+            <div class="container">
+                <div class="hero-badge">還在努力孵化論文的碩士生 🐣</div>
+                <h1 class="hero-name">中文姓名 <span class="en-name">Firstname Lastname</span></h1>
+                <p class="hero-tagline">白天是矯正現場的守門人，晚上是與 Python Bug 共舞的觀察者。</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">看我的戰功</a>
+                    <a href="#contact" class="btn btn-outline">聊聊天吧</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">關於我</h2>
+                <div class="card main-card">
+                    <p>你好！我是個游走在司法實務與學術數據之間的斜槓青年。我正努力把冰冷的程式碼帶進矯正現場，同時把充滿溫度的個案故事轉化為有意義的研究數據。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="section">
+            <div class="container">
+                <h2 class="section-title">學術養分 📚</h2>
+                <div id="courses-container" class="tag-cloud"></div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">實務戰地 🛡️</h2>
+                <div id="projects-container" class="card-grid"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">特殊專長 💡</h2>
+                <div id="skills-container" class="card skills-card"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">打個招呼 👋</h2>
+                <div class="contact-grid">
+                    <a href="mailto:email@example.com" class="card contact-card">Email</a>
+                    <a href="#" class="card contact-card">GitHub</a>
+                    <a href="#" class="card contact-card">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Made with ❤️ and too much coffee | © 2026 Your Name</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
