@@ -1,46 +1,36 @@
-// 這個檔案是你的靈魂，請盡量展示你的幽默感
 const courseData = [
-    { 
-        name: "Python 程式設計", 
-        skills: "把 Bug 變成 Feature", 
-        desc: "從零開始被程式碼霸凌，現在已經學會如何優雅地讓電腦幫我處理雜事。" 
-    },
-    { 
-        name: "犯罪學", 
-        skills: "讀心術（誤）", 
-        desc: "不只是研究為什麼有人犯罪，更多時候是在研究人類到底在想什麼。" 
-    },
-    { 
-        name: "社工與諮商心理", 
-        skills: "專業級同理心", 
-        desc: "學習如何聽出個案沒說出口的話，這技能在應付難纏的教授或親戚時也意外好用。" 
-    }
+    { name: "聲音環境感知研究", skills: "量化分析", desc: "參與國立臺北大學研究，分析環境噪音如何影響心理韌性，熟悉科學研究行政與問卷編碼。" },
+    { name: "碩士論文：數位復歸", skills: "數位政策", desc: "探討受刑人數位落差如何影響復歸社會的正義實現與挑戰。" }
 ];
 
 const projectData = [
-    { 
-        name: "圍牆內的守門人 (矯正實務)", 
-        tech: ["個案觀察", "危機處理"], 
-        desc: "在矯正第一線工作，每天都在看真實版《監獄風雲》。我致力於讓數位落差不再成為受刑人回歸社會的絆腳石。" 
-    },
-    { 
-        name: "社區裡的偵探 (觀護實務)", 
-        tech: ["法律邊界", "數據撈取"], 
-        desc: "走進社區，在保護社會安全與給予重生機會之間跳華爾滋。我試著用數據證明：每個人都有被數位賦能的權利。" 
-    }
+    { name: "網路詐騙個案探討", tech: ["法律實務", "詐騙防制"], desc: "針對受刑人因數位知能不足反覆陷入詐騙迴圈的困境，進行深度實務輔導。" },
+    { name: "矯正數位賦能", tech: ["個案觀察", "數位賦能"], desc: "在第一線工作，試著縮減資訊鴻溝，協助受刑人順利回歸數位社會。" }
 ];
 
-const skillData = {
-    "實戰專業": [
-        "犯罪心理洞察 (一眼看穿你在想什麼)", 
-        "矯正實務管理 (在各種極端情境下保持冷靜)"
-    ],
-    "斜槓技能": [
-        "Python 數據撈取 (把冰冷的數據變身有溫度的個案分析)",
-        "專業同理心 (不僅僅適用於矯正個案，也能聽懂教授沒說出的真心話)"
-    ],
-    "家庭照顧": [
-        "溫馨氣質 (在繁忙工作中，依然保持對家庭的關懷)",
-        "耐心大師 (不僅僅適用於處理複雜案件，也適用於面對家庭生活中的各種小挑戰)"
-    ]
-};
+const skillData = [
+    { name: "育兒與實驗教育", skills: "多工管理", desc: "研究 114 學年度實驗教育招生趨勢，將家長晤談經驗應用於職場平衡。" },
+    { name: "Google 在地嚮導", skills: "旅行共享", desc: "評論累積逾 10,000 次瀏覽，擅長規劃親子休閒與跨文化旅行路徑。" },
+    { name: "Python 程式設計", skills: "數據硬核", desc: "從 Bug 中學習。擅長使用 Python 進行數據清洗與研究分析，讓電腦處理雜事。" }
+];
+
+function init() {
+    const render = (id, data) => {
+        const container = document.getElementById(id);
+        if (!container) return;
+        data.forEach(item => {
+            const tags = item.tech ? item.tech.map(t => `<span class="tech-tag">${t}</span>`).join(' ') : `<span class="tech-tag">${item.skills}</span>`;
+            container.innerHTML += `
+                <div class="card">
+                    ${tags}
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                </div>`;
+        });
+    };
+    render('courses-container', courseData);
+    render('projects-container', projectData);
+    render('skills-container', skillData);
+}
+
+document.addEventListener('DOMContentLoaded', init);
