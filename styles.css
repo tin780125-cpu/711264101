@@ -1,112 +1,82 @@
 :root {
-    /* 色彩變數 - 調整為溫暖、度假感 */
-    --primary: #ff7043;
-    --secondary: #4fc3f7;
-    --bg: #f9f9f9;
-    --text: #333333;
+    --primary-sunset: #FF7E67;
+    --professional-navy: #1A3C5E;
+    --sand-bg: #FDF8F1;
     --card-bg: #ffffff;
-    --nav-bg: rgba(255, 255, 255, 0.95);
-    --border-color: #dddddd;
-    
-    /* 佈局變數 (保持) */
-    --section-padding: 80px;
-    --radius-bubble: 30px;
-    --nav-height: 70px;
-    --shadow-soft: 0 15px 30px rgba(255, 112, 67, 0.15); /* 調整陰影顏色 */
+    --shadow-soft: 0 15px 30px rgba(26, 60, 94, 0.1);
 }
 
-/* 基本樣式 (保持) */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 90px; /* 避免標題被選單遮住 */
+}
 
 body {
     font-family: 'Noto Sans TC', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    background-color: var(--sand-bg);
+    color: var(--professional-navy);
     line-height: 1.8;
 }
 
-.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-/* 導覽列優化 */
+/* 導覽列 */
 .navbar {
-    position: sticky;
-    top: 0;
-    height: var(--nav-height);
-    background: var(--nav-bg);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
+    position: sticky; top: 0; height: 70px;
+    background: rgba(253, 248, 241, 0.95);
+    backdrop-filter: blur(10px); z-index: 1000;
+    display: flex; align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-
 .nav-flex { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { text-decoration: none; color: var(--professional-navy); font-weight: bold; }
 
-.logo { text-decoration: none; font-weight: bold; color: var(--primary); }
+/* 英雄區與創意插圖樣式 */
+.hero { padding: 80px 0; background: linear-gradient(135deg, #fff5f0 0%, #ffe4d9 100%); clip-path: ellipse(150% 100% at 50% 0%); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
 
-.nav-links { display: flex; list-style: none; gap: 20px; }
-
-.nav-links a { text-decoration: none; color: var(--text); font-size: 0.9rem; transition: 0.3s; }
-
-.nav-links a:hover { color: var(--primary); }
-
-/* Section 使用變數 */
-.section { padding: var(--section-padding) 0; }
-
-.section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; }
-
-/* 卡片樣式 */
-.card {
+.tropical-professional-illustration {
     background: var(--card-bg);
-    padding: 30px;
-    border-radius: var(--radius-bubble);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-    border: 1px solid var(--border-color); /* 添加邊框 */
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-soft);
+    border: 8px solid white;
+    text-align: center;
+    transform: rotate(-2deg);
 }
+.icon { font-size: 3rem; margin: 10px; opacity: 0.8; }
+.palm { color: #2D5A27; }
+.code { color: var(--professional-navy); }
+.baby { color: var(--primary-sunset); }
+.tropical-professional-illustration p { font-weight: bold; color: var(--professional-navy); margin-top: 15px; }
 
-/* 標籤雲與卡片網格 */
-.tag-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+/* 區塊與卡片網格 */
+.section { padding: 80px 0; }
+.bg-light { background-color: #ffffff; }
+.section-title { text-align: center; margin-bottom: 50px; font-size: 2.2rem; }
 
-.tag { background: #fff; padding: 10px 25px; border-radius: 50px; border: 2px solid var(--secondary); font-weight: bold; transition: 0.3s; cursor: default; }
-
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-
-.tech-tag { font-size: 0.75rem; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; margin-right: 5px; color: var(--primary); }
-
-/* 按鈕樣式 */
-.btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block; transition: 0.3s; font-weight: bold; }
-.btn-primary { background: var(--primary); color: white; box-shadow: var(--shadow-soft); }
-.btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
-
-/* 插圖樣式 */
-.hero-container, .about-container, .courses-content, .projects-content, .skills-content, .contact-content {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.card {
+    background: var(--card-bg); padding: 30px; border-radius: 25px;
+    box-shadow: var(--shadow-soft); border-left: 6px solid var(--primary-sunset);
+    transition: 0.3s; text-decoration: none; color: inherit;
 }
+.card:hover { transform: translateY(-5px); }
 
-.hero-text { flex: 1; }
-.hero-image, .about-image, .courses-image, .projects-image, .skills-image, .contact-image {
-    max-width: 400px;
-    height: auto;
-}
+.tech-tag { font-size: 0.8rem; background: #fef2f2; color: var(--primary-sunset); padding: 3px 12px; border-radius: 50px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
 
-.about-content { flex-direction: row-reverse; } /* 讓插圖放置在文字右側 */
+.btn { padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+.btn-primary { background: var(--professional-navy); color: white; }
+.btn-outline { border: 2px solid var(--professional-navy); color: var(--professional-navy); margin-left: 10px; }
+
+.footer { text-align: center; padding: 40px 0; background: var(--professional-navy); color: white; }
+
+/* 聯絡區塊網格特別處理，避免跑掉 */
+.contact-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: center; }
+.contact-card h3 { color: var(--primary-sunset); margin-bottom: 10px; }
 
 @media (max-width: 768px) {
-    .hero-container, .about-container, .courses-content, .projects-content, .skills-content, .contact-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-image, .about-image, .courses-image, .projects-image, .skills-image, .contact-image {
-        max-width: 100%;
-    }
-    .about-content { flex-direction: column; }
-}
-
-/* 特殊專長卡片樣式調整 */
-.skills-card {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .tropical-professional-illustration { transform: rotate(0); margin-top: 30px; }
 }
