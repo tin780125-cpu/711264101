@@ -1,18 +1,21 @@
 :root {
-    /* 色彩變數 */
-    --primary: #ff8a71;
-    --secondary: #7dd3fc;
-    --bg: #fdfbf7;
-    --text: #334155;
+    /* 色彩變數 - 調整為溫暖、度假感 */
+    --primary: #ff7043;
+    --secondary: #4fc3f7;
+    --bg: #f9f9f9;
+    --text: #333333;
     --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --border-color: #dddddd;
     
-    /* 佈局變數 (新增加) */
+    /* 佈局變數 (保持) */
     --section-padding: 80px;
     --radius-bubble: 30px;
     --nav-height: 70px;
-    --shadow-soft: 0 15px 30px rgba(255, 138, 113, 0.15);
+    --shadow-soft: 0 15px 30px rgba(255, 112, 67, 0.15); /* 調整陰影顏色 */
 }
 
+/* 基本樣式 (保持) */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -24,12 +27,12 @@ body {
 
 .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-/* 導覽列使用變數優化 */
+/* 導覽列優化 */
 .navbar {
     position: sticky;
     top: 0;
     height: var(--nav-height);
-    background: rgba(253, 251, 247, 0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(8px);
     z-index: 1000;
     display: flex;
@@ -52,11 +55,13 @@ body {
 
 .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; }
 
+/* 卡片樣式 */
 .card {
     background: var(--card-bg);
     padding: 30px;
     border-radius: var(--radius-bubble);
     box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color); /* 添加邊框 */
 }
 
 /* 標籤雲與卡片網格 */
@@ -68,7 +73,40 @@ body {
 
 .tech-tag { font-size: 0.75rem; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; margin-right: 5px; color: var(--primary); }
 
-/* 其他按鈕與英雄區樣式保持一致但建議套用變數... */
+/* 按鈕樣式 */
 .btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block; transition: 0.3s; font-weight: bold; }
 .btn-primary { background: var(--primary); color: white; box-shadow: var(--shadow-soft); }
 .btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+
+/* 插圖樣式 */
+.hero-container, .about-container, .courses-content, .projects-content, .skills-content, .contact-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text { flex: 1; }
+.hero-image, .about-image, .courses-image, .projects-image, .skills-image, .contact-image {
+    max-width: 400px;
+    height: auto;
+}
+
+.about-content { flex-direction: row-reverse; } /* 讓插圖放置在文字右側 */
+
+@media (max-width: 768px) {
+    .hero-container, .about-container, .courses-content, .projects-content, .skills-content, .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image, .about-image, .courses-image, .projects-image, .skills-image, .contact-image {
+        max-width: 100%;
+    }
+    .about-content { flex-direction: column; }
+}
+
+/* 特殊專長卡片樣式調整 */
+.skills-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
