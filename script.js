@@ -1,36 +1,42 @@
-const courseData = [
-    { name: "聲音環境感知研究", skills: "量化分析", desc: "參與國立臺北大學研究，分析環境噪音如何影響心理韌性，熟悉科學研究行政與問卷編碼。" },
-    { name: "碩士論文：數位復歸", skills: "數位政策", desc: "探討受刑人數位落差如何影響復歸社會的正義實現與挑戰。" }
-];
-
-const projectData = [
-    { name: "網路詐騙個案探討", tech: ["法律實務", "詐騙防制"], desc: "針對受刑人因數位知能不足反覆陷入詐騙迴圈的困境，進行深度實務輔導。" },
-    { name: "矯正數位賦能", tech: ["個案觀察", "數位賦能"], desc: "在第一線工作，試著縮減資訊鴻溝，協助受刑人順利回歸數位社會。" }
-];
-
-const skillData = [
-    { name: "育兒與實驗教育", skills: "多工管理", desc: "研究 114 學年度實驗教育招生趨勢，將家長晤談經驗應用於職場平衡。" },
-    { name: "Google 在地嚮導", skills: "旅行共享", desc: "評論累積逾 10,000 次瀏覽，擅長規劃親子休閒與跨文化旅行路徑。" },
-    { name: "Python 程式設計", skills: "數據硬核", desc: "從 Bug 中學習。擅長使用 Python 進行數據清洗與研究分析，讓電腦處理雜事。" }
-];
-
-function init() {
-    const render = (id, data) => {
-        const container = document.getElementById(id);
-        if (!container) return;
-        data.forEach(item => {
-            const tags = item.tech ? item.tech.map(t => `<span class="tech-tag">${t}</span>`).join(' ') : `<span class="tech-tag">${item.skills}</span>`;
-            container.innerHTML += `
-                <div class="card">
-                    ${tags}
-                    <h3>${item.name}</h3>
-                    <p>${item.desc}</p>
-                </div>`;
-        });
-    };
-    render('courses-container', courseData);
-    render('projects-container', projectData);
-    render('skills-container', skillData);
+:root {
+    --primary: #ff8a71;
+    --bg: #fdfbf7;
+    --text: #334155;
+    --shadow: 0 15px 30px rgba(255, 138, 113, 0.15);
 }
 
-document.addEventListener('DOMContentLoaded', init);
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.8; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.navbar { position: sticky; top: 0; height: 70px; background: rgba(253, 251, 247, 0.95); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.nav-flex { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: bold; }
+
+.hero { padding: 60px 0; background: linear-gradient(135deg, #fff5f0 0%, #ffe4d9 100%); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.personal-image-container { display: flex; justify-content: center; }
+.personal-portrait { 
+    width: 100%; max-width: 380px; height: auto; 
+    border-radius: 30px; box-shadow: var(--shadow);
+    border: 8px solid white; transform: rotate(-2deg); 
+}
+
+.section { padding: 80px 0; }
+.bg-light { background-color: #ffffff; }
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.card { background: white; padding: 30px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-decoration: none; color: inherit; }
+
+.tech-tag { background: #fff1ee; color: var(--primary); padding: 4px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+.btn { padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+.footer { text-align: center; padding: 40px 0; color: #94a3b8; }
+
+@media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .personal-portrait { transform: rotate(0); margin-top: 30px; }
+}
